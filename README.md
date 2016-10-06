@@ -3,7 +3,7 @@
 
 
 # 部署该工程
-* 略
+* 工程环境配置：略；
 
 * 进入工程目录 cmd: npm install 安装node_modules的依赖模块(首次)
 ```Bash

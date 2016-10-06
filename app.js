@@ -10,12 +10,13 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 var routes = require('./routes/index'),
-    admin = require('./routes/admin');
+    admin = require('./routes/admin'),
+    MysqlObj = require('./models/mysql_obj');
 
 var app = express();
 
-// 链接数据库
-
+// 连接数据库
+// MysqlObj.init();
 
 // 设置模板引擎（设置为最新jade-pug）
 app.set('views', path.join(__dirname, 'views'));
