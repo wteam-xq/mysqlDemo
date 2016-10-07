@@ -16,7 +16,7 @@ var routes = require('./routes/index'),
 var app = express();
 
 // 连接数据库
-// MysqlObj.init();
+MysqlObj.init();
 
 // 设置模板引擎（设置为最新jade-pug）
 app.set('views', path.join(__dirname, 'views'));

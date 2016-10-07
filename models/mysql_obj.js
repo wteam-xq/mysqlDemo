@@ -1,19 +1,19 @@
 var mysql = require('mysql');
 
 var TEST_DATABASE = 'mysql_demo',
-	TEST_TABLE = 'user';
+	TEST_TABLE = 'users';
 var client = null;
 
 var MysqlObj = {
 	init: function(){
 		//创建连接  
-		client = mysql.createConnection({  
-		  user: 'root',  
-		  password: '',  
+		client = mysql.createConnection({
+			hosts: 'localhost',
+		  	user: 'root',  
+		  	password: '',
+		  	database: TEST_DATABASE
 		});  
-
 		client.connect();
-		client.query("use " + TEST_DATABASE);
 	}, 
 	getConnection: function(){
 		var result = null;
@@ -23,24 +23,37 @@ var MysqlObj = {
 		return result;
 	},
 	// 获取用户列表
-	getUserList: function(){
+	getUserList: function(cb){
 		if (!client) {
 			return true;
 		}
-		client.query(  
+		client.query(
 		  'SELECT * FROM ' + TEST_TABLE,  
 		  function selectCb(err, results, fields) {  
 		    if (err) {  
 		      throw err;  
 		    }  
-		    if(results){
-	          for(var i = 0; i < results.length; i++){
-	            console.log("%d\t%s\t%s", results[i].id, results[i].name, results[i].age);
-	          }
-		    }    
-		    client.end();  
+		    if (cb) {
+		    	cb(err, results);
+		    }  
 		  }  
 		); 
+	},
+	// 关闭数据库连接池
+	closeClient: function(){
+		client.end();
+	},
+	createUser: function(userObj, cb){
+		client.query('insert into users (name, age, job, hobby) values(?, ?, ?, ?)', 
+			[userObj.name, userObj.age, userObj.job, userObj.hobby], 
+			function(err, user) {
+		  		if (err) {
+		  			cb(err, null);
+		  		} else {
+		  			cb(null, user);
+		  		}
+			}
+		);
 	}
 }
 

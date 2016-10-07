@@ -10,7 +10,7 @@
 npm install
 ```
 
-* 工程目录下 npm start启动项目
+* 工程目录下 npm start启动项目(开发建议安装[node-dev](https://www.npmjs.com/package/node-dev)，然后`node-dev bin/www`启动)
 ```Bash
 npm start
 ```
