@@ -20,9 +20,9 @@ block content
             td #{user.job}
             td #{user.hobby}
             td 
-              a.link(href="/admin/user/update?id=#{user.id}") 更新
+              a.link(href="/admin/user/update?id=" + user.id) 更新
             td
-              a(data-id='#{user.id}' class="removeUser").btn.btn-danger 删除
+              a(data-id="" + user.id class="removeUser").btn.btn-danger 删除
       
       input(type='hidden' value='' id='selectId')
       

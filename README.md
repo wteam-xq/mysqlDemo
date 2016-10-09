@@ -16,3 +16,7 @@ npm start
 ```
 
 * 打开浏览器（建议 chrome）输入： `localhost:3000`(端口号在 bin/www 文件中设置)
+
+
+# 附录
+* [开发日志](https://github.com/wteam-xq/mysqlDemo/blob/master/dev_log.md)

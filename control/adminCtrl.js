@@ -33,10 +33,36 @@ var adminCtrol = {
 		});
 	},
 	updateUser: function(req, res){
-
+		var id = req.query.id;
+		MysqlObj.findUserById(id, function(err, user){
+			var userObj = null;
+			console.log('user: ' + JSON.stringify(user));
+			if (err){
+			    console.log('根据Id查找用户信息，出错');
+			}else{
+				userObj = user[0];
+			    res.render('admin/user_update', {
+			      title: 'admin',
+			      user: userObj
+			    });
+			}
+		});
 	},
 	updateUserPost: function(req, res){
-
+		var id = req.body.id;
+		var user = {
+			name: req.body.name,
+			age: req.body.age,
+			job: req.body.job,
+			hobby: req.body.hobby
+		};
+		MysqlObj.updateUser(id, user, function(err, updateCount){
+			if (err){
+			  console.log('更新用户信息，出错');
+			} else {
+			  res.redirect('/admin/');
+			}
+		});
 	},
 	deleteUser: function(req, res){
 
