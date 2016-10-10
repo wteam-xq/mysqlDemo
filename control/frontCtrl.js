@@ -1,10 +1,10 @@
-var MysqlObj = require('../models/mysql_obj');
+var UserObj = require('../models/user_obj');
 var webCtrol = {
 }
 
 webCtrol.index = function(req, res){
 	// 读取数据库
-	MysqlObj.getUserList(function(err, results){
+	UserObj.getUserList(function(err, results){
 		var userList = [];
 		if(!err && results){
           userList = results;
@@ -16,4 +16,4 @@ webCtrol.index = function(req, res){
 	});
 }
 
-module.exports = webCtrol
+module.exports = webCtrol;

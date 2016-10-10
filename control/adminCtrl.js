@@ -1,7 +1,7 @@
-var MysqlObj = require('../models/mysql_obj');
+var UserObj = require('../models/user_obj');
 var adminCtrol = {
 	userList: function(req, res){
-		MysqlObj.getUserList(function(err, users){
+		UserObj.getUserList(function(err, users){
 			if (err){
 				// 上线后将用forever输出日志
 		    	console.log('查询用户列表异常');
@@ -24,7 +24,7 @@ var adminCtrol = {
 			job: req.body.job,
 			hobby: req.body.hobby
 		};
-		MysqlObj.createUser(userObj, function(err, user){
+		UserObj.createUser(userObj, function(err, user){
 			if (err){
 			  console.log('新增用户信息错误');
 			}else{
@@ -34,9 +34,8 @@ var adminCtrol = {
 	},
 	updateUser: function(req, res){
 		var id = req.query.id;
-		MysqlObj.findUserById(id, function(err, user){
+		UserObj.findUserById(id, function(err, user){
 			var userObj = null;
-			console.log('user: ' + JSON.stringify(user));
 			if (err){
 			    console.log('根据Id查找用户信息，出错');
 			}else{
@@ -56,7 +55,7 @@ var adminCtrol = {
 			job: req.body.job,
 			hobby: req.body.hobby
 		};
-		MysqlObj.updateUser(id, user, function(err, updateCount){
+		UserObj.updateUser(id, user, function(err, result){
 			if (err){
 			  console.log('更新用户信息，出错');
 			} else {
@@ -65,9 +64,15 @@ var adminCtrol = {
 		});
 	},
 	deleteUser: function(req, res){
-
+		var id = req.body.id;
+		UserObj.deleteUser(id, function(err, result){
+			if (err){
+			  res.json({error:err});
+			} else {
+			  res.json({success: true});
+			}
+		});
 	}
 }
 
-
-module.exports = adminCtrol
+module.exports = adminCtrol;

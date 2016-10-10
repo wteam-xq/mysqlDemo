@@ -11,12 +11,15 @@ var express = require('express'),
 
 var routes = require('./routes/index'),
     admin = require('./routes/admin'),
-    MysqlObj = require('./models/mysql_obj');
+    MysqlObj = require('./models/mysql_obj'),
+    UserObj = require('./models/user_obj');
 
 var app = express();
 
 // 连接数据库
 MysqlObj.init();
+// 用户数据库对象初始化
+UserObj.init();
 
 // 设置模板引擎（设置为最新jade-pug）
 app.set('views', path.join(__dirname, 'views'));
