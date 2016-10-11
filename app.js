@@ -2,7 +2,7 @@ var express = require('express'),
     path = require('path'),
     // 显示网站icon的中间件
     favicon = require('serve-favicon'),
-    // 在控制台中，显示req请求信息： GET /200 39.753 ms - 1126
+    // 在控制台中，显示req请求信息(上线注释)： GET /200 39.753 ms - 1126
     logger = require('morgan'),
     // 读取cookie
     cookieParser = require('cookie-parser'),

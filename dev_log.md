@@ -15,3 +15,12 @@
 ## 2016-10-07
 * 完成mysql数据库连接, [常用mysql语句](http://www.cnblogs.com/zhangzhu/archive/2013/07/04/3172486.html)
 * mysql库完成读写数据库操作:[mysql](https://www.npmjs.com/package/mysql)
+
+## 2016-10-11
+* [nodejs forever用法简介](http://tcrct.iteye.com/blog/2043644)
+* [forever github](https://github.com/foreverjs/forever)
+* 打印的信息太多，上线得去除；
+* forever 无法关闭日志文件记录，只能指定输出日志的文件名称(默认在 ~/.forever/forever.log 生成日志文件)：
+```
+forever start -a -l out.log app.js  
+```
