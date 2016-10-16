@@ -1,13 +1,13 @@
 // 用户列表脚本
 $(function(){
 
-  var $remove_btn = $('.removeUser');
-  var $remove_submit = $('#removeSubmit');
-  var $remove_cancel = $('#removeCancel');
-  // 存储待删除用户ID隐藏域
-  var $selected_id = $('#selectId');
-  // 删除确认弹出框
-  var $confirm_dialog = $('#removeConfirm');
+  var $remove_btn = $('.removeUser'),
+      $remove_submit = $('#removeSubmit'),
+      $remove_cancel = $('#removeCancel'),
+      // 存储待删除用户ID隐藏域
+      $selected_id = $('#selectId'),
+      // 删除确认弹出框
+      $confirm_dialog = $('#removeConfirm');
 
   $remove_btn.on('click', function(){
     var $this = $(this);

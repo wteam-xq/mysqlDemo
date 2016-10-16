@@ -24,6 +24,16 @@ var adminCtrol = {
 			job: req.body.job,
 			hobby: req.body.hobby
 		};
+		if (!userObj.name) {
+			res.render('error', { 
+		        title: '新增用户异常',
+		        error: {
+		        	'status': 100,
+		        	'msg': '缺少必填参数！'
+		        }
+		    });
+			return true;
+		}
 		UserObj.createUser(userObj, function(err, user){
 			if (err){
 			  console.log('新增用户信息错误');
