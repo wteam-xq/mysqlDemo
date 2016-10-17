@@ -4,6 +4,8 @@ block content
   h3.text-center 用户添加
   br
   .container
+    .error_wrap
+      p.bg-danger.error_tips 错误提示
     .row
       form.form-horizontal.user_form(method="POST" action="add" name='userform')
         .form-group

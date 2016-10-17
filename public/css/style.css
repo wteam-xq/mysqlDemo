@@ -1,3 +1,5 @@
 body { padding: 50px; font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 a { color: #00B7FF; }
 .base_btn { margin-left:15px; }
+.error_wrap{ margin-bottom:10px; width:100%; display: none; }
+.error_tips{ text-align:center; font-size:14px; padding:10px; width:68%; margin:0 auto; }

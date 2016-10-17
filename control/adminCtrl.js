@@ -44,6 +44,16 @@ var adminCtrol = {
 	},
 	updateUser: function(req, res){
 		var id = req.query.id;
+		if (!id) {
+			res.render('error', { 
+		        title: '更新用户异常',
+		        error: {
+		        	'status': 100,
+		        	'msg': '缺少必填参数！'
+		        }
+		    });
+			return true;
+		}
 		UserObj.findUserById(id, function(err, user){
 			var userObj = null;
 			if (err){
