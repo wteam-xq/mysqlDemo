@@ -3,7 +3,7 @@
 
 
 # 部署该工程
-* 工程环境配置：略；
+* 工程环境配置：见附录；
 
 * 进入工程目录 cmd: npm install 安装node_modules的依赖模块(首次)
 ```Bash
@@ -20,3 +20,4 @@ npm start
 
 # 附录
 * [开发日志](https://github.com/wteam-xq/mysqlDemo/blob/master/dev_log.md)
+* [Windows、Mac、Linux配置博文](https://github.com/wteam-xq/mysqlDemo/blob/master/deploy_instructions.md)
