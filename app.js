@@ -8,12 +8,10 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     // 对post请求参数的解析
     bodyParser = require('body-parser');
-
 var routes = require('./routes/index'),
     admin = require('./routes/admin'),
     MysqlObj = require('./models/mysql_obj'),
     UserObj = require('./models/user_obj');
-
 var app = express();
 
 // 连接数据库

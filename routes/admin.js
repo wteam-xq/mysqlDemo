@@ -2,20 +2,20 @@ var express = require('express');
 var router = express.Router();
 var adminControl = require('../control/adminCtrl');
 
-/* GET users listing. */
+/* 后台首页 */
 router.get('/', adminControl.userList);
 
-// /*users add. */
+/* 新增用户 */
 router.route('/user/add')
 .get(adminControl.addUser)
 .post(adminControl.addUserPost);
 
-// /*users update. */
+/* 更新用户 */
 router.route('/user/update')
 .get(adminControl.updateUser)
 .post(adminControl.updateUserPost);
 
-// /*users delete */
+/* 删除用户 */
 router.post('/user/delete', adminControl.deleteUser);
 
 module.exports = router;
